@@ -1,6 +1,5 @@
 .majorCtn{
     width: 100%;
-    min-height: calc(100vh - 100px) ;
     display: flex;
     flex-direction: row;
     align-items: flex-start;

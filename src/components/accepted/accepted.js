@@ -1,29 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './accepted.module.css'
+import axios from 'axios'
+import { API_URI } from '../../apiEndPoint'
 
-function Accepted() {
+function Accepted({user}) {
+    const [requests, setRequests] = useState(null)
+    useEffect(()=>{
+        axios.get(`${API_URI}/booking/confirmed/${user._id}`)
+            .then(res=>{
+                console.log(res.data.data)
+                setRequests(res.data.data)
+            })
+    },[])
     return (
         <div className={classes.majorCtn}>
-            <div className={classes.card}>
-                <h5>Bed Type: Ventilator</h5>
-                <p style={{fontSize:14}}>Patient: Sam</p>
-                <p style={{fontSize:12}}>Message: lorem ipsum</p>
-                <p style={{fontSize:12}}>Duration: 20/10/2022 - 25/10/2022</p>
-                <div>
-                    <button>Accept</button>
-                    <button>Cancel</button>
-                </div>
-            </div>
-            <div className={classes.card}>
-                <h5>Bed Type: Ventilator</h5>
-                <p style={{fontSize:14}}>Patient: Sam</p>
-                <p style={{fontSize:12}}>Message: lorem ipsum</p>
-                <p style={{fontSize:12}}>Duration: 20/10/2022 - 25/10/2022</p>
-                <div>
-                    <button>Accept</button>
-                    <button>Cancel</button>
-                </div>
-            </div>
+            {
+                requests ?
+                requests.map((r,i)=>
+                    <div className={classes.card} key={i}>
+                        <h5>Bed Type: {r.bedType}</h5>
+                        <p style={{fontSize:14}}>Patient: {r.patientName}</p>
+                        <p style={{fontSize:12}}>Message: Operation</p>
+                        <p style={{fontSize:12}}>Duration: {r.duration}</p>
+                        <div>
+                            <button>Done</button>
+                        </div>
+                    </div> 
+                    ) :
+                    "No Requests"
+            }
         </div>
     )
 }

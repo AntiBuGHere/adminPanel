@@ -7,12 +7,14 @@ import AccDetails from '../accountDetails/accDetails'
 import Register from '../Register/register'
 import Accepted from '../accepted/accepted'
 
-function Dashboard() {
+function Dashboard({user}) {
+    console.log(user)
+    const [name, setName] = useState(user.name)
     const [miniNav, setMiniNav] = useState('request')
     return (
         <div className={classes.majorCtn}>
             <div className={classes.header}>
-                <h3>Sehyog Dashboard</h3>
+                <h3>{name} Sehyog Dashboard</h3>
                 <button>Logout</button>
             </div>
             <div className={classes.nav}>
@@ -23,17 +25,17 @@ function Dashboard() {
             {
                 miniNav &&
                 miniNav === 'request' &&
-                <Register />
+                <Register user={user} setMiniNav={setMiniNav}/>
             }
             {
                 miniNav &&
                 miniNav === 'confirmed' &&
-                <Accepted />
+                <Accepted user={user} setMiniNav={setMiniNav}/>
             }
             {
                 miniNav &&
                 miniNav === 'account' &&
-                <AccDetails />
+                <AccDetails user={user} setMiniNav={setMiniNav}/>
             }
 
         </div>
