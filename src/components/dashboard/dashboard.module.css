@@ -1,0 +1,31 @@
+.header{
+    height:50px;
+    width: 100%;
+    background-color: #D1D4F3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px ;
+}
+.nav{
+    height:50px;
+    width: 100%;
+    background-color: #E9EAFC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px ;
+    gap:40px;
+}
+.nav svg{
+    font-size: 24px;
+    cursor: pointer;
+    color: #705db8;
+}
+.nav svg:hover{
+    transform: scale(1.05);
+    transition-duration: 0.1s;
+}
+.header button{
+    padding: 5px 10px;
+}

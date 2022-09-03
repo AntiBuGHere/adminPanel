@@ -1,10 +1,9 @@
 import React from 'react'
 
 function Signup() {
-    const [type, setType] = useState('doc')
     return (
-        <div className={classes.majorCtn}>
-            <div className={classes.formCtn}>
+        <div>
+            {/* <div className={classes.formCtn}>
                 <h3>Sehyog Admin Panel</h3>
                 <input type="text" placeholder="email" />
                 <input type="text" placeholder="name" />
@@ -19,7 +18,7 @@ function Signup() {
 
                 <input type="password" placeholder="Password" />
                 <button >Login</button>
-            </div>
+            </div> */}
         </div>
     )
 }
