@@ -1,0 +1,24 @@
+.majorCtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100vh
+}
+
+.formCtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    background-color: #F1F3FF;
+    padding: 20px;
+}
+.formCtn input{
+    width:300px;
+    height:30px
+}
+.formCtn button{
+    padding: 7px 15px;
+}
