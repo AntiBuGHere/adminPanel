@@ -8,9 +8,21 @@ function AccDetails({user}) {
             <div className={classes.card}>
                 <h5>Hospital Name: {user.name}</h5>
                 <p style={{fontSize:16}}>Email: {user.email}</p>
-                <p style={{fontSize:16}}>Description: {user.desc}</p>
-                <p style={{fontSize:15}}><b>Bed Types available</b></p>
                 {
+                    user.desc &&
+                        <p style={{fontSize:16}}>Description: {user.desc}</p>
+                }
+                {
+                    user.specialization &&
+                        <p style={{fontSize:16}}>Specialization: {user.specialization}</p>
+                }
+                {
+                    user.bed &&
+                    <p style={{fontSize:15}}><b>Bed Types available</b></p>
+
+                }
+                {
+                    user.bed &&
                     user.bed.map(b=>
                         <p style={{fontSize:14}}>{b.type}</p>
                         )

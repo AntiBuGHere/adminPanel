@@ -29,6 +29,20 @@ function Login({setUser}) {
 
     const DoctorLogin = (e)=>{
         e.preventDefault()
+        const data = {
+            email,
+            password
+        } 
+        console.log(data)
+        axios.post(`${API_URI}/doctor/login`, data)
+            .then(res=>{
+                if(res.data){
+                    setUser(res.data)
+                }else{
+                    alert('wrong credentials')
+                }
+                navigate('/')
+            })
     }
 
     return (

@@ -27,7 +27,11 @@ function Register({user,setMiniNav}) {
                 requests ?
                 requests.map((r,i)=>
                     <div className={classes.card} key={i}>
-                        <h5>Bed Type: {r.bedType}</h5>
+                        {
+                            r.bedType ?
+                            <h5>Bed Type: {r.bedType}</h5>:
+                            <h5>slot: {r.slots}</h5>
+                        }
                         <p style={{fontSize:14}}>Patient: {r.patientName}</p>
                         <p style={{fontSize:12}}>Message: Operation</p>
                         <p style={{fontSize:12}}>Duration: {r.duration}</p>
